@@ -26,11 +26,15 @@ This project involves deploying an Angular frontend application and a Spring Boo
 
 1. **Deploy the Backend Application**
 
-   Apply the backend deployment and service YAML files:
+   - Apply the backend deployment 
 
-   ```bash
+   ```sh
    kubectl apply -f backend-deployment.yaml
+   ```
+   - service YAML files:
+   ```sh
    kubectl apply -f backend-service.yaml
+   ```
 
 ## Deployment Instructions
 
