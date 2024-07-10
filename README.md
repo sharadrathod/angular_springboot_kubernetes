@@ -44,15 +44,15 @@ This project involves deploying an Angular frontend application and a Spring Boo
 
 1. **Deploy the Backend Application**
 
-   - Apply the backend deployment 
+- Apply the backend deployment 
 
-   ```sh
-   kubectl apply -f backend-deployment.yaml
-   ```
-   - service YAML files:
-   ```sh
-   kubectl apply -f backend-service.yaml
-   ```
+```
+kubectl apply -f backend-deployment.yaml
+```
+- service YAML files:
+```
+kubectl apply -f backend-service.yaml
+```
 
 ## Deployment Instructions
 
@@ -60,10 +60,10 @@ This project involves deploying an Angular frontend application and a Spring Boo
 
    Apply the frontend deployment and service YAML files:
 
-   ```bash
-   kubectl apply -f frontend-deployment.yaml
-   kubectl apply -f frontend-service.yaml
-
+```
+kubectl apply -f frontend-deployment.yaml
+kubectl apply -f frontend-service.yaml
+```
 ## Post-Deployment Configuration
 
 After deploying the applications, there are a few post-deployment configurations to perform:
@@ -74,11 +74,11 @@ The frontend application needs to communicate with the backend application. Ther
 
 1. **Identify the Node's Public IP Address**
 
-   You can obtain the public IP address of your Kubernetes cluster's Node by running the following command:
+You can obtain the public IP address of your Kubernetes cluster's Node by running the following command:
 
-   ```bash
-   kubectl get nodes -o wide
-
+```
+kubectl get nodes -o wide
+```
 ## Configuration
 
 ### Worker Service File for Frontend
@@ -91,9 +91,9 @@ To ensure proper communication between the frontend and backend, follow these st
 
 3. **Copy the file to the frontend application directory in the Kubernetes pod:**
 
-   ```bash
-   kubectl cp worker.service.ts <frontend-pod-name>:/opt/angular-frontend/src/app/services/worker.service.ts
-
+```
+kubectl cp worker.service.ts <frontend-pod-name>:/opt/angular-frontend/src/app/services/worker.service.ts
+```
 4. **Replace <frontend-pod-name> with the name of your frontend pod.**
 
 ### Application Properties for Backend
@@ -104,20 +104,20 @@ To ensure proper communication between the frontend and backend, follow these st
 
 3. **Copy the file to the backend application directory in the Kubernetes pod:**
 
-   ```bash
-   kubectl cp application.properties <backend-pod-name>:/opt/spring-backend/src/main/resources/application.properties
-
+```
+kubectl cp application.properties <backend-pod-name>:/opt/spring-backend/src/main/resources/application.properties
+```
 4. **Replace <backend-pod-name> with the name of your backend pod.**
 
 ### Example of modifying the file:
 
 1. **Replace `<database-host>`, `<port>`, `<database-name>`, `<database-username>`, and `<database-password>` with your database configuration.**
 
-   ```bash
-   spring.datasource.url=jdbc:mysql://<database-host>:<port>/<database-name>
-   spring.datasource.username=<database-username>
-   spring.datasource.password=<database-password>
-
+```
+spring.datasource.url=jdbc:mysql://<database-host>:<port>/<database-name>
+spring.datasource.username=<database-username>
+spring.datasource.password=<database-password>
+```
 ## Scaling
 
 To scale the application based on your requirements, you can adjust the number of replicas for the frontend and backend deployments.
@@ -130,9 +130,9 @@ To scale the frontend application, follow these steps:
 
    You can check the current number of replicas for the frontend deployment by running the following command:
 
-   ```bash
-   kubectl get deployment frontend-app
-
+```
+kubectl get deployment frontend-app
+```
 2. **To Scale the deployments just open the yaml file and enter the desired number of replicas and apply the files.**
 
 
