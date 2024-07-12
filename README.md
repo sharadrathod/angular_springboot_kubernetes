@@ -16,10 +16,12 @@ mv ./kubectl ~/.local/bin/kubectl
 ```
 kubectl version --client
 ```
-- to configure eks cluster
+- to configure eks cluster 
+```
+aws eks update-kubeconfig --region us-east-1 --name my-cluster
 ```
 
-```
+
 ## Table of Contents
 
 - [Project Overview](#project-overview)
